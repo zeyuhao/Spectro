@@ -1,2 +1,2 @@
-# uMarket
-uMarket Beta
+# Spectro
+Spectro Beta
