@@ -1,0 +1,37 @@
+Practical PHP Usage Guide
+
+1. 	To get pageid from url:
+	================================================	
+	$_GET['variable'];
+	
+	example:
+	www.yourwebsite.com/?variable=4    ---> the ? mark tells php that whatever is
+											after will be given as data.		  
+	echo $_GET[variable'] will return 4;
+	================================================
+	
+2.	You can specify more than 1 variable in the url using the & sign:
+	================================================
+	if (isset($_GET[variable1]) == 1 & isset($_GET[variable2]) == 1) {
+		(do something ...)
+	}
+	================================================
+	In order to "do something" ---> www.yourwebsite.com/?variable1=1&variable2=1
+		
+3.	To define a constant:
+	
+	DEFINE('name','value',case_insensitive) ---> constants don't need a $ sign
+
+4. 	Sessions:
+	
+	An array (similar to the $_GET array) we use these to check if a user is logged in
+	based on if the user is currently stored in the array.
+	================================================
+	session_start();
+	if(!isset($_SESSION['username'])) {
+		header('Location: login.php');
+	}
+	
+	to unset the username for logout purposes:
+	unset($_SESSION['username']);
+	================================================

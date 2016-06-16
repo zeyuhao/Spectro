@@ -1,0 +1,33 @@
+Practical CSS guide:
+
+1.	Creating a box shadow:
+
+	box-shadow [hor-size] [vert-size] [blur-size] [color]
+	example: A grey box shadow
+	box-shadow 5x 5x 10x #CCCCCC
+	
+2. 	Affecting Certain elements of HTML:
+	
+	You can format specific elements of an HTML doc that are placed with tags.
+	Example: Anything inside the pre tags can be specifically targeted for formatting
+	HTML
+	<div id = "example">
+		<pre>
+			...
+		</pre>
+		<p>
+			...
+		</p>
+	</div>
+	
+	CSS
+	#example pre {
+		...
+	}
+	#example p {
+		...	
+	}
+
+	Notice above, you specify the HTML doc's div id, and then the specific tag element
+	inside that div that you want to format. This way, you can format different elements
+	inside the same div in different ways.

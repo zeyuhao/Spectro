@@ -1,0 +1,26 @@
+SQL Commands:
+
+Querying data examples using PHP:
+
+$q = SELECT * FROM pages  ---> set a query variable = Select all column data from the table 'pages'
+$r = mysqli_query($dbc, $q) ---> run the sql query 'q' using the database connection 'dbc', store to 'r'
+
+
+Convert $r, the data from a query, to an array:
+$page = mysqli_fetch_assoc($r);
+
+To access the data in the data array:
+echo $page['header']; ---> where 'header' is one of the column properties of the table 'pages'
+
+==============================================================================================================
+Creating a table with custom column names by inserting rows:
+
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('1231', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('3', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('123', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('445', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('234', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('767', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('867', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`, `c5`) VALUES ('98', '1', '1', '1', '1')# 1 row affected.
+INSERT INTO `master_table` (`accession`, `c2`, `c3`, `c4`,[...]

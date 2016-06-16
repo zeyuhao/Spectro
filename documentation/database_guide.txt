@@ -1,0 +1,12 @@
+phpMyAdmin Documentation:
+
+Creating tables:
+1. First column of each table should be the ID
+	a. use a "mediumint" datatype
+	b. check auto increment
+	c. set the index to primary
+	d. leave remaining fields at default values
+
+2. Remaining columns should be appropriate for whatever your needs dictate.
+	a. use the "varchar" datatype for strings (e.g a page title record)
+	b. enter a value for length/values to specify how long the data can be

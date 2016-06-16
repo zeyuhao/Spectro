@@ -1,0 +1,27 @@
+A practical guide to HTML(5)
+
+
+1. Make a user-editable list - Users can edit the content on the webpage
+=======================================================
+	<ul contenteditable="true">
+        <li> Break mechanical cab driver. </li>
+        <li> Drive to abandoned factory
+        <li> Watch video of self </li>
+     </ul>
+=======================================================
+
+2. Button w/ redirect url
+=======================================================
+a) regular html	<a class="btn" href="">Link</a>
+b) javascript	<button onclick="location.href='';">Link</button>
+
+3. Making buttons in line with navbar
+=======================================================
+<button class="btn btn-default navbar-btn">Button Name</button>
+
+specifically, you must use the class above with navbar-btn
+
+4. Require forms to have text before submitting
+=======================================================
+You need to add the "required" field to your html form: 
+<input class="form-control" type="text" name="password" id="password" placeholder="Password" required>

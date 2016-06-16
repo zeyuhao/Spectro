@@ -1,0 +1,19 @@
+To do list:
+
+1) Add email verification
+
+2) Add button to remove phone number if desired
+
+3) Fix phone validation function
+
+4) Add capitalization function to names
+
+5) Add tab to login screen that can quickly switch to signup page (see ebay's signin screen)
+
+6) Get dynamic loading of navbar to work - added extra table for account_pages
+
+7) Redirect users to page they clicked on after logging in
+
+8) Create page for users to access their posted listings and "starred items" (items they are interested in)
+
+9) Make listing description a blurb if length is longer than x words
