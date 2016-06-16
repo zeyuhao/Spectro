@@ -1,2 +1,2 @@
 # Spectro
-A web application to help automate Scrum meeting and Retros
+A web application to help automate Scrum meetings and Retros
