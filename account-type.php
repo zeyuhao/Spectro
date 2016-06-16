@@ -12,15 +12,15 @@ if (isset($_POST['submitted_master']) == 1) {
 	$r = mysqli_query($dbc, $q);
 	if ($r) {
 		$_SESSION['account_created'] = true;
-		header('Location: account-type.php');
+		header('Location: engineer.php');
 	} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
-} else if (isset($_POST['submitted_engineer']) == 1) {
+} else if (isset($_POST['submitted_engineer?page=9']) == 1) {
 	$type = "engineer";
 	$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
 	$r = mysqli_query($dbc, $q);
 	if ($r) {
 		$_SESSION['account_created'] = true;
-		header('Location: account-type.php');
+		header('Location: engineer.php.php?page=9');
 	} else {
 		$q = "DELETE from users WHERE email='$user[email]'";
 		$r = mysqli_query($dbc, $q);

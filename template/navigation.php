@@ -3,7 +3,7 @@
 		<ul class="nav navbar-nav pull-right">
 			<!-- Navbar highlighting is done here -->
 			<li <?php if($pageid == '1') { echo ' class="active"'; } ?> ><a href='index.php'>Home</a></li>
-			<li <?php if($pageid == '2') { echo ' class="active"'; } ?> ><a href='listings.php'>Listings</a></li>
+			<li <?php if($pageid == '9') { echo ' class="active"'; } ?> ><a href='engineer.php'>Retro</a></li>
 			<li <?php if($pageid == '6') { echo ' class="active"'; } ?> ><a href='sell.php'>Sell</a></li>
 		</ul><!-- END navbar-nav pull-right -->
 		<ul class="nav navbar-nav pull-left">

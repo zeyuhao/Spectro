@@ -128,5 +128,15 @@
 			$("#form-account-type").hide(600);
 			$("#account-settings-account-type-data").show(600);
 	    });
+	    
+	    $("#btn-engineer-went-well").click(function() {
+			$("#form-engineer-needs-improvement").hide(600);
+			$("#form-engineer-went-well").show(600);
+	    });
+	    $("#btn-engineer-needs-improvement").click(function() {
+			$("#form-engineer-needs-improvement").show(600);
+			$("#form-engineer-went-well").hide(600);
+	    });
+	    
 	});
 </script>
