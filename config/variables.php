@@ -2,7 +2,7 @@
 # Global Variables Setup
 
 // Title:
-$site_title = 'uMarket';
+$site_title = 'Spectro';
 
 // Each school will have it's own email domain
 $school_domain = "jhu.edu";

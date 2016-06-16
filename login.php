@@ -3,10 +3,10 @@
 session_start();
 // Redirect user to homepage if already logged in
 if(isset($_SESSION['username'])) {
-	header('Location: index.php');
+	header('Location: account-listings.php');
 }
 include 'config/setup.php';
-$pageid = 3;
+$pageid = 1;
 # Check if password and email entered in form match an entry from database
 if($_POST) {
 	$q = "SELECT * FROM users WHERE email = '$_POST[email]' AND password = SHA1('$_POST[password]')";

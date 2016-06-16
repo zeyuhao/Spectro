@@ -13,15 +13,14 @@ if (isset($_POST['submitted']) == 1) {
 	$email = trim(mysqli_real_escape_string($dbc, $_POST['email']));
 	$password = SHA1(mysqli_real_escape_string($dbc, $_POST['password']));
 	// If email is a valid jhu.edu address and doesn't already exist in database
-	if (validate_email_format($email, $school_domain)) {
-		if (validate_email_unique($email, $dbc)) {
-			$q = "INSERT INTO users (first, last, email, password) VALUES ('$first', '$last', '$email', '$password')";
-			$r = mysqli_query($dbc, $q);
-			if ($r) {
-				$message = '<p>Please verify your email to complete the last step in account creation!</p>';
-			} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
-		} else $message = '<p>This email has already been registered to previous account</p>';
-	} else $message = '<p>A valid ' . $school_domain . ' email is required to register for an account</p>';
+	if (validate_email_unique($email, $dbc)) {
+		$q = "INSERT INTO users (first, last, email, password) VALUES ('$first', '$last', '$email', '$password')";
+		$r = mysqli_query($dbc, $q);
+		if ($r) {
+			$_SESSION['username'] = $email;
+			header('Location: account-type.php');
+		} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+	} else $message = '<p>This email has already been registered to previous account</p>';
 }		
 ?>
 <!DOCTYPE html>

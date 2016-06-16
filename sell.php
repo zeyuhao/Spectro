@@ -3,7 +3,7 @@
 # Start the session:
 session_start();
 if(!isset($_SESSION['username'])) {
-	header('Location: login.php?page=3');
+	header('Location: login.php');
 }
 include 'config/setup.php';
 $pageid = 6;
