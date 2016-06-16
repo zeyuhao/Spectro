@@ -41,17 +41,20 @@
 	    $("#form-account-name").hide();	
 	    $("#form-account-email").hide();	
 	    $("#form-account-password").hide();
-	    $("#form-account-phone").hide();	
+	    $("#form-account-phone").hide();
+	    $("#form-account-type").hide();	
 		
 		$("#btn-account-name-edit").click(function() {
 			$("#form-account-name").show(600);
 			$("#form-account-email").hide(600);
 			$("#form-account-phone").hide(600);
 			$("#form-account-password").hide(600);
+			$("#form-account-type").hide(600);
 			$("#account-settings-name-data").hide(300);
 			$("#account-settings-email-data").show(300);
 			$("#account-settings-password-data").show(300);
 			$("#account-settings-phone-data").show(300);
+			$("#account-settings-account-type-data").show(300);
 	    });
 	    $("#btn-account-name-cancel").click(function() {
 			$("#form-account-name").hide(600);
@@ -63,10 +66,12 @@
 			$("#form-account-name").hide(600);
 			$("#form-account-phone").hide(600);
 			$("#form-account-password").hide(600);
+			$("#form-account-type").hide(600);
 			$("#account-settings-name-data").show(300);
 			$("#account-settings-email-data").hide(300);
 			$("#account-settings-password-data").show(300);
 			$("#account-settings-phone-data").show(300);
+			$("#account-settings-account-type-data").show(300);
 	    });
 	    $("#btn-account-email-cancel").click(function() {
 			$("#form-account-email").hide(600);
@@ -78,10 +83,12 @@
 			$("#form-account-name").hide(600);
 			$("#form-account-email").hide(600);
 			$("#form-account-password").hide(600);
+			$("#form-account-type").hide(600);
 			$("#account-settings-name-data").show(300);
 			$("#account-settings-email-data").show(300);
 			$("#account-settings-password-data").show(300);
 			$("#account-settings-phone-data").hide(300);
+			$("#account-settings-account-type-data").show(300);
 	    });
 	    $("#btn-account-phone-cancel").click(function() {
 			$("#form-account-phone").hide(600);
@@ -93,14 +100,33 @@
 			$("#form-account-name").hide(600);
 			$("#form-account-email").hide(600);
 			$("#form-account-phone").hide(600);
+			$("#form-account-type").hide(600);
 			$("#account-settings-name-data").show(300);
 			$("#account-settings-email-data").show(300);
 			$("#account-settings-password-data").hide(300);
 			$("#account-settings-phone-data").show(300);
+			$("#account-settings-account-type-data").show(300);
 	    });
 	    $("#btn-account-password-cancel").click(function() {
 			$("#form-account-password").hide(600);
 			$("#account-settings-password-data").show(600);
+	    });
+	    
+	    $("#btn-account-type-edit").click(function() {
+			$("#form-account-password").hide(600);
+			$("#form-account-name").hide(600);
+			$("#form-account-email").hide(600);
+			$("#form-account-phone").hide(600);
+			$("#form-account-type").show(600);
+			$("#account-settings-name-data").show(300);
+			$("#account-settings-email-data").show(300);
+			$("#account-settings-password-data").show(300);
+			$("#account-settings-phone-data").show(300);
+			$("#account-settings-account-type-data").hide(300);
+	    });
+	    $("#btn-account-type-cancel").click(function() {
+			$("#form-account-type").hide(600);
+			$("#account-settings-account-type-data").show(600);
 	    });
 	});
 </script>

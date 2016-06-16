@@ -21,7 +21,11 @@ if (isset($_POST['submitted_master']) == 1) {
 	if ($r) {
 		$_SESSION['account_created'] = true;
 		header('Location: account-type.php');
-	} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+	} else {
+		$q = "DELETE from users WHERE email='$user[email]'";
+		$r = mysqli_query($dbc, $q);
+		$message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+	}
 }		
 ?>
 <!DOCTYPE html>

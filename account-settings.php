@@ -41,6 +41,19 @@ if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
 			$message = "Successfully updated your password";
 		} else $message = "<p>Your password could not be changed because: '.mysqli_error($dbc).'</p>";
 	} else $message = "<p>You must correctly confirm your new password<p>";
+} elseif (isset($_POST['submitted_master']) == 1) {
+	$type = "master";
+	$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
+	if (mysqli_query($dbc, $q)) {
+		$message = "Successfully updated your account type";
+	} else $message = "<p>Your account type could not be changed because: '.mysqli_error($dbc).'</p>";
+} elseif (isset($_POST['submitted_engineer']) == 1) {
+	$type = "engineer";
+	$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
+	$r = mysqli_query($dbc, $q);
+	if (mysqli_query($dbc, $q)) {
+		$message = "Successfully updated your account type";
+	} else $message = "<p>Your account type could not be changed because: '.mysqli_error($dbc).'</p>";
 }
 include 'config/variables.php'; // reload site variables for user after sql query executes
 $pageid = 5;
@@ -215,6 +228,44 @@ $pageid = 5;
 											<button type="reset" class="btn btn-default" id="btn-account-password-cancel">Cancel</button>
 										</div>
 									</form><!-- END Form -->
+								</div><!-- END form-account-password div -->
+							</div><!-- END account-settings-password div -->
+						</a><!-- END list-group-item for password -->
+						<a class="list-group-item">
+							<div class="tmp-msg-5">
+								<?php if (isset($_POST['account_type'])) { if (isset($message)) { echo $message; } } ?>
+							</div>
+							<div id="account-settings-account-type">
+								<div id="account-settings-account-type-data">
+									<button class="btn btn-default pull-right" id="btn-account-type-edit">Edit</button>
+									<?php echo "Account Type:"; ?>
+									<p class="list-group-item-text"><?php echo $user['account_type']; ?></p>
+								</div><!-- END account-settings-account-type-data div -->
+								<div id="form-account-type">
+									<div class="row">
+										<div class="form-account-edit-heading">
+											<div class="col-sm-10 col-sm-offset-1">
+												<h4>Change your account type</h4>
+											</div>
+										</div><!-- END form-account-password-heading div -->
+									</div><!-- End row -->
+									<div class="row">
+										<div class="col-md-2 col-md-offset-1">
+											<form action="" method="post" role="form">
+												<button type="submit" class="btn btn-default">Scrum Master</button>
+												<input type="hidden" name="submitted_master" value="1">
+											</form><!-- End Scrum Master form -->
+											<form action="" method="post" role="form">
+												<button type="submit" class="btn btn-default">Engineer User</button>
+												<input type="hidden" name="submitted_engineer" value="1">
+											</form><!-- End Scrum Master form -->
+										</div><!-- End Scrum Master div -->
+									</div><!-- End Button row -->
+									<div class="row">
+										<div class="col-md-2">
+											<button type="reset" class="btn btn-default" id="btn-account-type-cancel">Cancel</button>
+										</div>
+									</div>
 								</div><!-- END form-account-password div -->
 							</div><!-- END account-settings-password div -->
 						</a><!-- END list-group-item for password -->

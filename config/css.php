@@ -86,6 +86,13 @@ body {
 	padding-left: 10px;
 }
 
+#account-settings-account-type {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
 .form-account-edit-heading {
 	padding-bottom: 50px;
 }
