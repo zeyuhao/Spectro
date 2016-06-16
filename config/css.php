@@ -10,6 +10,8 @@
 <!-- FontAwesome -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
 <!-- jQuery 1xx-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -19,6 +21,7 @@
 html {
   	position: relative;
   	min-height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body > .container {
@@ -32,9 +35,36 @@ body > .container-fluid {
 body {
   	/* Margin bottom by footer height */
     margin-bottom: 100px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-fixed-left {
+  font-family: 'Open Sans', sans-serif;
+  width: 16%;
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+  font-family: 'Open Sans', sans-serif;
+  float: none;  /* Cancel default li float: left */
+  width: 139px;
+}
+
+.navbar-fixed-left + .container {
+  padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: -50px;
+  margin-left: 140px;
 }
 
 .well-footer {
+  font-family: 'Open Sans', sans-serif;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -51,11 +81,11 @@ body {
 	width: 60%;
 	/*border: 1px solid #666;*/
 	background: #ffffff;
-	text-align:center;	
+	text-align:center;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-right: 10px;
-	padding-left: 10px;		
+	padding-left: 10px;
 }
 
 #account-settings-email {

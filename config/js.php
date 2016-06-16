@@ -43,7 +43,8 @@
 	    $("#form-account-password").hide();
 	    $("#form-account-phone").hide();
 	    $("#form-account-type").hide();	
-		
+		$("#form-engineer-needs-improvement").hide();
+
 		$("#btn-account-name-edit").click(function() {
 			$("#form-account-name").show(600);
 			$("#form-account-email").hide(600);
@@ -130,12 +131,12 @@
 	    });
 	    
 	    $("#btn-engineer-went-well").click(function() {
-			$("#form-engineer-needs-improvement").hide(600);
-			$("#form-engineer-went-well").show(600);
+			$("#form-engineer-needs-improvement").hide();
+			$("#form-engineer-went-well").show();
 	    });
 	    $("#btn-engineer-needs-improvement").click(function() {
-			$("#form-engineer-needs-improvement").show(600);
-			$("#form-engineer-went-well").hide(600);
+			$("#form-engineer-needs-improvement").show();
+			$("#form-engineer-went-well").hide();
 	    });
 	    
 	});

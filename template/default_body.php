@@ -1,3 +1,4 @@
+<?php include 'template/side.php'; ?>
 <?php include 'template/navigation.php'; ?><!--Navigation here -->
 <div class="container">
 	<div class="panel panel-default">

@@ -16,15 +16,13 @@ if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
 	} else $message = '<p>Your name could not be changed because: '.mysqli_error($dbc).'</p>';
 } elseif (isset($_POST['email'])) {
 	$email = trim(mysqli_real_escape_string($dbc, $_POST['email']));
-	if (validate_email_format($email, $school_domain)) {
-		if (validate_email_unique($email, $dbc)) {
-			$q = "UPDATE users SET email='$email' WHERE email='$user[email]'";
-			if (mysqli_query($dbc, $q)) {
-				$message = '<p>Please verify your email to complete the last step in changing your email</p>';
-				$_SESSION['username'] = $email; // set session username to new email
-			} else $message = '<p>Your email could not be changed because: '.mysqli_error($dbc).'</p>';
-		} else $message = '<p>This email has already been registered to a previous account</p>';
-	} else $message = '<p>A valid ' . $school_domain . ' email is required</p>';
+	if (validate_email_unique($email, $dbc)) {
+		$q = "UPDATE users SET email='$email' WHERE email='$user[email]'";
+		if (mysqli_query($dbc, $q)) {
+			$message = '<p>Please verify your email to complete the last step in changing your email</p>';
+			$_SESSION['username'] = $email; // set session username to new email
+		} else $message = '<p>Your email could not be changed because: '.mysqli_error($dbc).'</p>';
+	} else $message = '<p>This email has already been registered to a previous account</p>';
 } elseif (isset($_POST['phone'])) {
 	$phone = mysqli_real_escape_string($dbc, $_POST['phone']);
 	if ($phone = validate_phone_format($phone)) {	

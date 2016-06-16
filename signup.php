@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (isset($_SESSION['username'])) {
 	header('Location: index.php');
@@ -21,13 +21,13 @@ if (isset($_POST['submitted']) == 1) {
 			header('Location: account-type.php');
 		} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
 	} else $message = '<p>This email has already been registered to previous account</p>';
-}		
+}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<?php include 'template/default_head.php'; ?>
-	</head>	
+	</head>
 	<body>
 		<?php include 'template/navigation.php'; ?><!--Navigation here -->
 		<!-- Page form created here -->

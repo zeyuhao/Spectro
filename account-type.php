@@ -6,22 +6,18 @@ if (isset($_SESSION['account_created'])) {
 include 'config/setup.php';
 $pageid = 8;
 // If user submits form
-if (isset($_POST['submitted_master']) == 1) {
-	$type = "master";
-	$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
-	$r = mysqli_query($dbc, $q);
-	if ($r) {
+if ($_POST) {
+	if (isset($_POST['submitted_master']) == 1) {
+		$type = "master";
+		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";		
+	} else if (isset($_POST['submitted_engineer']) == 1) {
+		$type = "engineer";
+		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
+	}
+	if (mysqli_query($dbc, $q)) {
 		$_SESSION['account_created'] = true;
-		header('Location: engineer.php');
-	} else $message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
-} else if (isset($_POST['submitted_engineer?page=9']) == 1) {
-	$type = "engineer";
-	$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
-	$r = mysqli_query($dbc, $q);
-	if ($r) {
-		$_SESSION['account_created'] = true;
-		header('Location: engineer.php.php?page=9');
-	} else {
+		header('Location: engineer.php?page=9');
+	}  else {
 		$q = "DELETE from users WHERE email='$user[email]'";
 		$r = mysqli_query($dbc, $q);
 		$message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
