@@ -5,7 +5,6 @@ session_start();
 if(!isset($_SESSION['username'])) {
 	header('Location: login.php');
 }
-	
 include 'config/setup.php';
 // Check if form submitted, and execute corresponding account changes
 if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
@@ -43,9 +42,9 @@ if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
 		} else $message = "<p>Your password could not be changed because: '.mysqli_error($dbc).'</p>";
 	} else $message = "<p>You must correctly confirm your new password<p>";
 }
-include 'config/variables.php'; // reload site variables 
+include 'config/variables.php'; // reload site variables for user after sql query executes
+$pageid = 5;
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -53,16 +52,14 @@ include 'config/variables.php'; // reload site variables
 	</head>
 		
 	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<?php include 'template/navigation.php'; ?><!--Navigation here -->
-					<div class="page-header">
-						<h1><?php echo $page['header']; ?></h1>
-					</div>
+		<?php include 'template/navigation.php'; ?><!--Navigation here -->
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<?php include 'template/page_header.php'; ?>
 					<div class="list-group">
 						<a class="list-group-item">
-							<div class="tmp-msg">
+							<div class="tmp-msg-5">
 								<?php if (isset($_POST['firstname']) && isset($_POST['lastname'])) { if (isset($message)) { echo $message; } }?>
 							</div>
 							<div id="account-settings-name">
@@ -79,7 +76,7 @@ include 'config/variables.php'; // reload site variables
 											</div>
 										</div><!-- END form-account-name-heading div -->
 									</div><!-- End row -->
-									<form class="form-horizontal" method="post" role="form">
+									<form action="account-settings.php" class="form-horizontal" method="post" role="form">
 										<div class="form-group">
 											<label for="firstname" class="col-sm-2 control-label">First</label>
 											<div class="col-sm-6">
@@ -103,7 +100,7 @@ include 'config/variables.php'; // reload site variables
 							</div><!-- END account-settings-name div -->
 						</a><!-- END list-group-item for name -->
 						<a class="list-group-item">
-							<div class="tmp-msg">
+							<div class="tmp-msg-5">
 								<?php if (isset($_POST['email'])) { if (isset($message)) { echo $message; } } ?>
 							</div>
 							<div id="account-settings-email">
@@ -119,8 +116,8 @@ include 'config/variables.php'; // reload site variables
 												<h4>Change your email</h4>
 											</div>
 										</div><!-- END form-account-email-heading div -->
-									</div>
-									<form class="form-horizontal" method="post" role="form">
+									</div><!-- END row -->
+									<form action="account-settings.php" class="form-horizontal" method="post" role="form">
 										<div class="form-group">
 											<label for="email" class="col-sm-2 control-label">Email</label>
 											<div class="col-sm-6">
@@ -137,7 +134,7 @@ include 'config/variables.php'; // reload site variables
 							</div><!-- END account-settings-email div -->
 						</a><!-- END list-group-item for email -->
 						<a class="list-group-item">
-							<div class="tmp-msg">
+							<div class="tmp-msg-5">
 								<?php if (isset($_POST['phone'])) { if (isset($message)) { echo $message; } } ?>
 							</div>
 							<div id="account-settings-phone">
@@ -164,7 +161,7 @@ include 'config/variables.php'; // reload site variables
 											</div>
 										</div><!-- END form-account-phone-heading div -->
 									</div><!-- End row -->
-									<form class="form-horizontal" method="post" role="form">
+									<form action="account-settings.php" class="form-horizontal" method="post" role="form">
 										<div class="form-group">
 											<label for="phone" class="col-sm-2 control-label">Phone</label>
 											<div class="col-sm-6">
@@ -182,7 +179,7 @@ include 'config/variables.php'; // reload site variables
 							</div><!-- END account-settings-phone div -->
 						</a><!-- END list-group-item for phone -->
 						<a class="list-group-item">
-							<div class="tmp-msg">
+							<div class="tmp-msg-5">
 								<?php if (isset($_POST['password'])) { if (isset($message)) { echo $message; } } ?>
 							</div>
 							<div id="account-settings-password">
@@ -199,7 +196,7 @@ include 'config/variables.php'; // reload site variables
 											</div>
 										</div><!-- END form-account-password-heading div -->
 									</div><!-- End row -->
-									<form class="form-horizontal" method="post" role="form">
+									<form action="account-settings.php" class="form-horizontal" method="post" role="form">
 										<div class="form-group">
 											<label for="password" class="col-sm-2 control-label">Password</label>
 											<div class="col-sm-6">
@@ -222,9 +219,9 @@ include 'config/variables.php'; // reload site variables
 							</div><!-- END account-settings-password div -->
 						</a><!-- END list-group-item for password -->
 					</div><!-- End list-group -->
-				</div><!-- End .col-md-10 -->
-			</div><!-- End row -->
-		</div><!-- End container fluid -->
+				</div><!-- End panel-body -->
+			</div><!-- End panel -->
+		</div><!-- End container -->
 		<?php include 'template/footer.php'; ?> <!-- Footer is here -->
 	</body>
 	

@@ -47,60 +47,48 @@ function validate_phone_format($phone) {
     } else return FALSE;
 }
 
-function validate_image_upload () {
-	if (!isset($_FILES['photos']['error']) || is_array($_FILES['photos']['error'])) {
-		throw new RuntimeException('Invalid parameters.');
-	}
-	switch ($_FILES['photos']['error']) {
-	    case UPLOAD_ERR_OK:
-	        break;
-	    case UPLOAD_ERR_NO_FILE:
-	        throw new RuntimeException('No file sent.');
-	    case UPLOAD_ERR_INI_SIZE:
-	    case UPLOAD_ERR_FORM_SIZE:
-	        throw new RuntimeException('Exceeded filesize limit.');
-	    default:
-	        throw new RuntimeException('Unknown errors.');
-	}
-	$target_dir = "images/";
-	$target_file = $target_dir . basename($_FILES["photos"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-	// Check if image file is a actual image or fake image
-	$check = getimagesize($_FILES["photos"]["tmp_name"]);
-	if($check !== false) {
-	    echo "File is an image - " . $check["mime"] . ".";
-	    $uploadOk = 1;
-	} else {
-	    echo "File is not an image.";
-	    $uploadOk = 0;
-	}
-	// Check if file already exists
-	if (file_exists($target_file)) {
-	    echo "Sorry, file already exists.";
-	    $uploadOk = 0;
-	}
-	// Check file size
-	if ($_FILES["photos"]["size"] > 500000) {
-	    echo "Sorry, your file is too large.";
-	    $uploadOk = 0;
-	}
-	// Allow certain file formats
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-	    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	    $uploadOk = 0;
-	}
-	// Check if $uploadOk is set to 0 by an error
-	if ($uploadOk == 0) {
-	    echo "Sorry, your file was not uploaded.";
-	// if everything is ok, try to upload file
-	} else {
-	    if (move_uploaded_file($_FILES["photos"]["tmp_name"], $target_file)) {
-	        echo "The file ". basename( $_FILES["photos"]["name"]). " has been uploaded.";
-			return $target_file;
-	    } else {
-	        echo "Sorry, there was an error uploading your file.";
-	    }
-	}
+# If failed validation, a message is set. Also, a path index is set.
+# If the 'message' index was set, then image validation has failed.
+# @param $error_arr the error array with all error and success messages from errors.php
+function validate_image_upload ($error_arr) {
+	$data['success'] = FALSE;
+	if($_FILES['photos']['tmp_name'] != '') {
+		if (!isset($_FILES['photos']['error']) || is_array($_FILES['photos']['error'])) {
+			throw new RuntimeException('Invalid parameters.');
+		}
+		switch ($_FILES['photos']['error']) {
+		    case UPLOAD_ERR_OK:
+		        break;
+		    case UPLOAD_ERR_NO_FILE:
+		    	$data['message'] = $error_arr['image_unspec_error'];
+		    case UPLOAD_ERR_INI_SIZE:
+		    case UPLOAD_ERR_FORM_SIZE:
+		       	$data['message'] = $error_arr['image_large_error'];
+		    default:
+		        $data['message'] = $error_arr['upload_image_error'];
+		}
+		$target_dir = "images/";
+		$data['path'] = $target_dir . basename($_FILES["photos"]["name"]);
+		$data['image_type'] = pathinfo($data['path'], PATHINFO_EXTENSION);
+		// Check if image file is a actual image or fake image
+		$check = getimagesize($_FILES["photos"]["tmp_name"]);
+		if($check === false) {
+		    $data['message'] = $error_arr['not_an_image_error'];
+		}
+		// Check if file already exists
+		if (file_exists($data['path'])) {
+		    $data['message'] = $error_arr['image_exists_error'];
+		}
+		// Check file size, limit at 5MB
+		if ($_FILES["photos"]["size"] > $error_arr['max_size_bytes']) {
+		    $data['message'] = $error_arr['image_large_error'];
+		}
+		// Allow certain file formats
+		if($data['image_type'] != "jpg" && $data['image_type'] != "png" && $data['image_type'] != "jpeg" && $data['image_type'] != "gif") {
+		    $data['message'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		}
+		if(!isset($data['message']) && isset($data['path']) && isset($data['image_type'])) $data['success'] = TRUE;
+	} else $data['message'] = $error_arr['image_unspec_error'];
+	return $data;
 }
 ?>

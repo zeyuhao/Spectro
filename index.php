@@ -1,8 +1,8 @@
 <?php 
 session_start();
 include 'config/setup.php';
+$pageid = 1;
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>		

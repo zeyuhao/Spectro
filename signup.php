@@ -1,10 +1,10 @@
 <?php 
-include 'config/setup.php';
 session_start();
 if (isset($_SESSION['username'])) {
 	header('Location: index.php');
 }
-
+include 'config/setup.php';
+$pageid = 4;
 // If user submits form
 if (isset($_POST['submitted']) == 1) {
 	$first = mysqli_real_escape_string($dbc, $_POST['first']);
@@ -24,18 +24,18 @@ if (isset($_POST['submitted']) == 1) {
 	} else $message = '<p>A valid ' . $school_domain . ' email is required to register for an account</p>';
 }		
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<?php include 'template/default_head.php'; ?>
 	</head>	
 	<body>
+		<?php include 'template/navigation.php'; ?><!--Navigation here -->
 		<!-- Page form created here -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading"><h3><?php echo $page['header']; ?></h3></div><!-- END Panel Heading -->
 						<div class ="panel-body">
 							<div class="tmp-msg">

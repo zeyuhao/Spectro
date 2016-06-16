@@ -25,7 +25,13 @@
 <script>
 	$(function() {
 		setTimeout(function() { 
-			$(".tmp-msg:visible").hide(600);
+			$(".tmp-msg-5:visible").hide(600);
+		}, 5000);
+	});
+	
+	$(function() {
+		setTimeout(function() { 
+			$(".tmp-msg-3:visible").hide(600);
 		}, 3000);
 	});
 </script>

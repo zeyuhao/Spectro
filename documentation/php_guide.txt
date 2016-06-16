@@ -35,3 +35,21 @@ Practical PHP Usage Guide
 	to unset the username for logout purposes:
 	unset($_SESSION['username']);
 	================================================
+
+5.  Ways to check if file was uploaded:
+	http://php.net/manual/en/function.is-uploaded-file.php
+	================================================
+	if(is_uploaded_file($_FILES['photos']['tmp_name'])) {
+		... logic
+	}
+	
+	or 
+	This last example isn't documented or official, so use at your own risk
+	================================================
+	if($_FILES['photos']['tmp_name'] != '')) {
+		... logic
+	}
+	
+6. 	File Upload error handling
+	================================================	
+	http://php.net/manual/en/features.file-upload.errors.php

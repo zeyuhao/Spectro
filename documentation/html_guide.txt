@@ -25,3 +25,5 @@ specifically, you must use the class above with navbar-btn
 =======================================================
 You need to add the "required" field to your html form: 
 <input class="form-control" type="text" name="password" id="password" placeholder="Password" required>
+
+5. Must place <button>'s inside a <form> in order for them to submit data via $_POST

@@ -22,7 +22,6 @@
 	c. Change name
 	d. Change email	
 	*Added feature to toggle on/off form for entering new data in js.php*
-	
 2) Changed navbar to include dropdown menu for useraccounts
 3) Added feature to prevent users from being able to access login.php or signup.php if user is already logged in
 	
@@ -69,3 +68,27 @@
 2. Finished sell.php - listings can now be created
 3. Got CURDATE() sql function to automatically input date for new listings
 4. Created validate_image_upload() function in validation.php
+
+1/20/16 - 1/23/16
+=====================
+1. Finished photo upload feature
+2. Added upload_thumbnail() function that correctly uses rescale_image()
+
+1/24/16
+=====================
+1. Full width fixed-top navigation bar outside of container-fluid
+2. Added account-listings page that shows listings for the logged-in user
+3. Changed container-fluid to regular container for most pages
+4. Added a page_header template
+
+1/25/16
+=====================
+1) Improved image upload validation system by adding $error_arr
+	a. 	checks that a file was uploaded in the first place
+2) Fixed navbar highlighting for when a form is submitted, the same page
+   That the form belongs to is still highlighted in navbar
+3) Changed how navbar highlighting works
+	a. 	We now specify the $pageid for each page immediately after including the setup.php file
+		instead of using ?page=id
+4) Added feature to allow users to delete their own listings
+5) Changed listing styling format - no more panels, instead use rows with <hr> between each listing

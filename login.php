@@ -1,18 +1,15 @@
 <?php
 # Start Login Session:
-include 'config/setup.php';
 session_start();
 // Redirect user to homepage if already logged in
 if(isset($_SESSION['username'])) {
 	header('Location: index.php');
 }
-
-# Database Connection:
-include 'config/connection.php';
-
+include 'config/setup.php';
+$pageid = 3;
 # Check if password and email entered in form match an entry from database
 if($_POST) {
-	$q = "SELECT * FROM USERS WHERE email = '$_POST[email]' AND password = SHA1('$_POST[password]')";
+	$q = "SELECT * FROM users WHERE email = '$_POST[email]' AND password = SHA1('$_POST[password]')";
 	$r = mysqli_query($dbc, $q);
 	# if number of rows found with 'username' is found
 	if(mysqli_num_rows($r) == 1) {
@@ -24,18 +21,17 @@ if($_POST) {
 	} else $message = "Invalid email/password entered. Please try again\n\n";
 }
 ?>
-
 <!DOCTYPE html>
 <html>	
 	<head>
 		<?php include 'template/default_head.php'; ?>
 	</head>
-		
 	<body>
+		<?php include 'template/navigation.php'; ?><!--Navigation here -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading"><h3><?php echo $page['header']; ?></h3></div><!-- END Panel Heading -->
 						<div class ="panel-body">
 							<div class="tmp-msg">

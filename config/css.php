@@ -15,13 +15,18 @@
 
 
 <style>
+
 html {
   	position: relative;
   	min-height: 100%;
 }
 
+body > .container {
+	padding-top: 100px;
+}
+
 body > .container-fluid {
-	padding-top: 60px;
+	padding-top: 100px;
 }
 
 body {
@@ -40,7 +45,6 @@ body {
 	color: white;
 }
 
-
 #landing-account {
 	margin-left: auto;
 	margin-right: auto;
@@ -52,22 +56,6 @@ body {
 	padding-bottom: 10px;
 	padding-right: 10px;
 	padding-left: 10px;		
-}
-
-#signup-button {
-	width: 150px;
-}
-
-#signin-button {
-	width: 150px;
-}
-
-#nav-signup-button {
-	width: 75px;
-}
-
-#nav-signin-button {
-	width: 75px;
 }
 
 #account-settings-email {
@@ -102,9 +90,18 @@ body {
 	padding-bottom: 50px;
 }
 
-#listings-btn-buy {
+.div-listings-btn {
 	position: relative;
-	top: 30px;
+	margin-top: 10px;
+	right: 40px;
+}
+
+#account-btn {
+	margin-right: 20px;
+}
+.general-btn {
+	width: 75px;
+	margin: 7px 10px 5px 10px;
 }
 
 /* changes background color of navbar */

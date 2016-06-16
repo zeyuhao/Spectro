@@ -1,5 +1,8 @@
 To do list:
 
+
+Future fixes
+=======================================
 1) Add email verification
 
 2) Add button to remove phone number if desired
@@ -12,8 +15,30 @@ To do list:
 
 6) Get dynamic loading of navbar to work - added extra table for account_pages
 
-7) Redirect users to page they clicked on after logging in
+7) Redirect users to page they clicked on after logging in - use session variables?
 
-8) Create page for users to access their posted listings and "starred items" (items they are interested in)
+8) Create page for users to access their "starred items" (items they are interested in)
 
 9) Make listing description a blurb if length is longer than x words
+
+10) Add preventative measures for listings (e.g max price cap, regex for illegal items)
+
+11) Fix navbar highlighting for when users click on signin page
+
+12) Allow users to multiselect listings to delete
+
+13) Allow users to post listings even if their thumbnail image does not upload - allow them to add a thumbnail image later
+
+14) Add image upload meter (visually show upload progress)
+
+15) Do error messages for account-settings page
+
+
+
+Most important
+=======================================
+1) Allow users to edit their listings
+
+2) Allow users to upload images for their listings besides thumbnail
+
+3) randomize uploaded image file names so duplicate images can be uploaded by multiple users
