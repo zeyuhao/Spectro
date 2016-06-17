@@ -9,4 +9,4 @@ if(isset($_SESSION['username'])) {
 	} elseif ($user['account_type'] == "master") {
 		header('Location: master.php?page=9');
 	}	
-} else header('Location: login.php');
+} else header('Location: index.php');

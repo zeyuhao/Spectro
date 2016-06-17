@@ -3,7 +3,7 @@
 # Start the session:
 session_start();
 if(!isset($_SESSION['username'])) {
-	header('Location: login.php');
+	header('Location: index.php');
 }
 include 'config/setup.php';
 // Check if form submitted, and execute corresponding account changes

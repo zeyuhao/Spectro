@@ -27,7 +27,7 @@ if($_POST) {
 		<?php include 'template/default_head.php'; ?>
 	</head>
 	<body>
-		<?php include 'template/navigation.php'; ?><!--Navigation here -->
+		<?php include 'template/navigation-full.php'; ?><!--Navigation here -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
@@ -53,6 +53,6 @@ if($_POST) {
 				</div><!-- END Column -->
 			</div><!-- END Row -->
 		</div>
-		<?php include 'template/footer.php'; ?> <!-- Footer is here -->
+		<?php include 'template/footer-full.php'; ?> <!-- Footer is here -->
 	</body>
 </html>
