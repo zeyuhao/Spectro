@@ -3,6 +3,7 @@
 		<ul class="nav navbar-nav pull-right">
 			<!-- Navbar highlighting is done here -->
 			<li <?php if($pageid == '9') { echo ' class="active"'; } ?> ><a href="retro_gateway.php">Retro</a></li>
+			<li <?php if($pageid == '11') { echo ' class="active"'; } ?> ><a href="action_items.php">Retro</a></li>
 			<li <?php if($pageid == '5') { echo ' class="active"'; } ?> ><a href="account-settings.php">Account</a></li>
 			<li><a href="logout.php">Sign Out</a></li>
 		</ul><!-- END navbar-nav pull-right -->

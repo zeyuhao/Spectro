@@ -12,7 +12,7 @@ if ($_POST) {
 		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
 		if (mysqli_query($dbc, $q)) {
 			$_SESSION['account_created'] = true;
-			header('Location: engineer.php?page=9');
+			header('Location: master.php?page=10');
 		}  else {
 			$q = "DELETE from users WHERE email='$user[email]'";
 			$r = mysqli_query($dbc, $q);
@@ -23,7 +23,7 @@ if ($_POST) {
 		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
 		if (mysqli_query($dbc, $q)) {
 			$_SESSION['account_created'] = true;
-			header('Location: master.php?page=10');
+			header('Location: engineer.php?page=9');
 		}  else {
 			$q = "DELETE from users WHERE email='$user[email]'";
 			$r = mysqli_query($dbc, $q);

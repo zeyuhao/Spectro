@@ -7,133 +7,148 @@ if(!isset($_SESSION['username'])) {
 }
 include 'config/setup.php';
 $pageid = 9;
+if($_POST) {
+	if (isset($_POST['delete'])) {
+		$listing_id = $_POST['listing_id'];
+		$q = "DELETE FROM retro_items WHERE id = '$listing_id'";
+		$r = mysqli_query($dbc, $q);
+	} elseif (isset($_POST['submit']) && isset($_POST['action-item'])) {
+		$listing_id = $_POST['listing_id'];
+		$action_item = $_POST['action-item'];
+		$q = "UPDATE retro_items SET action_item='$action_item' WHERE id = '$listing_id'";	
+		$r = mysqli_query($dbc, $q);
+	}
+}
+include 'config/variables.php'; // reload site variables for user after sql query executes
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <?php include 'template/default_head.php'; ?>
-  </head>
-  <body>
-	<?php include 'template/side.php'; ?>
-	<?php include 'template/navigation.php'; ?>
-    <div class="container-fluid">
-      <div class="row">
-
-        <div class="col-md-offset-2 col-md-3">
-
-<strong> What went well?</strong>
-<br>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Pan_Blue_Circle.png" height="42" width="42">
-    <strong>June 16, 2016</strong>
-    <br></br>
-    <p>A retro item</p>
-    <em>anonymous</em>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">
-    <strong>June 17, 2016</strong>
-    <br></br>
-    <p>A retro item</p>
-    <em>anonymous</em>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">
-    <strong>June 16, 2016</strong>
-    <br></br>
-    <p>a realllllllllllllllllllllyyyyyyyy lonnnnnnnnnnnnnnngggggggggggggg retro item. a little too much detail. this is a specific item with a lot of text that few people will relate to. it will probably not be actionable.</p>
-    <em>anonymous</em>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-        </div><!-- End col-md-3 -->
-
-
-
-        <div class="col-md-3">
-          <strong>What needs improvment?</strong>
-          <br>
-
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">
-              <strong>June 16, 2016</strong>
-              <br></br>
-              <p>a realllllllllllllllllllllyyyyyyyy lonnnnnnnnnnnnnnngggggggggggggg retro item. a little too much detail. this is a specific item with a lot of text that few people will relate to. it will probably not be actionable.</p>
-              <em>anonymous</em>
-            </div>
-
-            <div class="panel-body">
-              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Yellow_icon.svg/1024px-Yellow_icon.svg.png" height="42" width="42">
-              <strong>June 16, 2016</strong>
-              <br></br>
-              <p>A retro item</p>
-              <em>anonymous</em>
-            </div>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">
-              <strong>June 17, 2016</strong>
-              <br></br>
-              <p>A retro item</p>
-              <em>anonymous</em>
-            </div>
-          </div>
-
-
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">
-              <strong>June 17, 2016</strong>
-              <br></br>
-              <p>A retro item</p>
-              <em>anonymous</em>
-            </div>
-          </div>
-
-        </div><!-- End col-md-3 -->
-
-
-
-
-        <!--ACTION ITEMS-->
-        <div class="col-md-3">
-          <strong>Action Items:</strong>
-          <br>
-
-        <div class="panel panel-default">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Ski_trail_rating_symbol-green_circle.svg" height="42" width="42">Do everything better
-          <br>
-          <em>team</em>
-
-          <br>
-          <br>
-
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Yellow_icon.svg/1024px-Yellow_icon.svg.png" height="42" width="42">Do everything better
-          <br>
-          <em>team</em>
-
-        </div><!-- End col-md-3 -->
-
-      </div><!-- End row -->
-    </div><!-- End container-fluid -->
-
-    <?php include 'template/footer.php'; ?> <!-- Footer -->
-  </body>
+	<head>
+		<?php include 'template/default_head.php'; ?>
+	</head>	
+	<body>
+		<?php include 'template/side.php'; ?><!--Side Navigation here -->
+		<?php include 'template/navigation.php'; ?><!--Navigation here -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-5">
+					<h3>What went well</h3>
+					<?php	
+					$q = "SELECT * FROM retro_items WHERE type = 'went-well'";
+					$r = mysqli_query($dbc, $q);
+					if(mysqli_num_rows($r) > 0) {
+						while($listing = mysqli_fetch_assoc($r)) { 
+							$listing_date = $listing['date'];
+							$listing_theme = $listing['theme'];
+							$listing_desc = $listing['description'];
+							$listing_id = $listing['id']; ?>
+							<div class="panel panel-primary">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-8">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-4">
+											    		<p><?php echo $listing_theme; ?></p>
+											    	</div>
+												</div>
+												<div class="row">
+													<div class="col-md-4">
+													    <p><?php echo $listing_date; ?><p>
+													</div>
+												</div><!-- END row -->
+												<div class="row">
+													<div class="col-md-4">
+													    <p><?php echo $listing_desc; ?></p>
+													</div>
+												</div><!-- END row -->
+											</div>
+										</div><!-- END col-md-8-->
+										<div class="col-md-4">
+											<form action="master.php" method="post" role="form">
+												<div class="col-md-1 col-md-offset-1">
+													<button type="submit" class="btn btn-primary" name="delete">Delete</button>
+													<input type="hidden" name="listing_id" value="<?php echo $listing_id; ?>">
+												</div>
+											</form>
+										</div><!-- END col-md-4-->
+									</div><!-- END row -->
+								</div><!-- End panel-body -->
+							</div><!-- END panel -->
+					<?php }
+					} else { ?>
+						<p>No team members think anything went well :(</p>
+					<?php } ?>
+				</div><!-- End col-md-3 -->
+				<div class="col-md-5">
+					<h3>What really needs improvement</h3>
+					
+					<?php	
+					$q = "SELECT * FROM retro_items WHERE type = 'improvement'";
+					$r = mysqli_query($dbc, $q);
+					if(mysqli_num_rows($r) > 0) {
+						while($listing = mysqli_fetch_assoc($r)) { 
+							$listing_date = $listing['date'];
+							$listing_theme = $listing['theme'];
+							$listing_desc = $listing['description'];
+							$listing_id = $listing['id']; ?>
+							<div class="panel panel-primary">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-8">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-4">
+											    		<p><?php echo $listing_theme; ?></p>
+											    	</div>
+												</div>
+												<div class="row">
+													<div class="col-md-4">
+													    <p><?php echo $listing_date; ?><p>
+													</div>
+												</div><!-- END row -->
+												<div class="row">
+													<div class="col-md-4">
+													    <p><?php echo $listing_desc; ?></p>
+													</div>
+												</div><!-- END row -->
+											</div>
+										</div><!-- END col-md-8-->
+										<div class="col-md-4">
+											<div class="col-md-1 col-md-offset-1">
+												<button class="btn btn-primary btn-master-action-item-add" name="add-action">
+													<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Action Item</button>
+												</button>
+											</div>
+										</div><!-- END col-md-4-->
+									</div><!-- END row -->
+								</div><!-- End panel-body -->
+							</div><!-- END panel -->
+							<div class="panel panel-primary form-master-action-item">
+								<div class="panel-body">
+									<form action="master.php?page=9" class="form-horizontal" method="post" role="form" enctype="multipart/form-data">
+										<div class="form-group">
+											<label for="description" class="col-sm-2 control-label"></label>
+										    <div class="col-sm-6">
+										    	<textarea class="form-control" id="action-item-description" name="action-item" 
+										    		required="yes" placeholder="Describe the action item" rows="8"></textarea>
+											</div>
+										</div><!-- END form-group -->
+											<div class="col-sm-offset-2">
+											<button type="submit" class="btn btn-default" id="btn-master-action-item-submit" name="submit">Submit</button>
+											<button type="reset" class="btn btn-default" id="btn-master-action-item-cancel">Cancel</button>
+											<input type="hidden" name="listing_id" value="<?php echo $listing_id; ?>">
+										</div>
+									</form>
+								</div><!-- End panel-body -->
+							</div><!-- END panel -->
+					<?php }
+					} else { ?>
+						<p>No team members think anything needs improvement :)</p>
+					<?php } ?>
+				</div><!-- End col-md-3 -->
+			</div><!-- END row -->
+		</div><!-- END container-fluid -->
+		<?php include 'template/footer.php'; ?> <!-- Footer is here -->
+	</body>
 </html>

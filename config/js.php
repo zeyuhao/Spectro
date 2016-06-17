@@ -44,6 +44,7 @@
 	    $("#form-account-phone").hide();
 	    $("#form-account-type").hide();	
 		$("#form-engineer-needs-improvement").hide();
+		$(".form-master-action-item").hide();
 
 		$("#btn-account-name-edit").click(function() {
 			$("#form-account-name").show(600);
@@ -130,6 +131,14 @@
 			$("#account-settings-account-type-data").show(600);
 	    });
 	    
+	    $(".btn-master-action-item-add").click(function() {
+	    	$(".form-master-action-item").show(600);
+	    });
+	    $("#btn-master-action-item-cancel").click(function() {
+			$(".form-master-action-item").hide(600);
+	    });
+	    
+	   
 	    $("#btn-engineer-went-well").click(function() {
 			$("#form-engineer-needs-improvement").hide();
 			$("#form-engineer-went-well").show();
