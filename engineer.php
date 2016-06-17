@@ -48,7 +48,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 							<button type="reset" class="btn btn-primary" id="btn-engineer-needs-improvement">What Needs Improvement</button>
 						</div>
 						<br></br>
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-body">
 								<form action="engineer.php" class="form-horizontal" id="form-engineer-went-well" method="post" role="form" enctype="multipart/form-data">
 									<div class="form-group">
@@ -134,7 +134,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6">
-								<div class="panel panel-default">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										<h3 class="panel-title">What you thought went well</h3>
 									</div>
@@ -176,7 +176,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 								</div><!-- End panel -->
 							</div><!-- END col md -->
 							<div class="col-md-6">
-								<div class="panel panel-default">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										<h3 class="panel-title">What you thought needs improvement</h3>
 									</div>
