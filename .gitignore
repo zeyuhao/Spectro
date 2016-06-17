@@ -42,10 +42,3 @@ Thumbs.db
 .project
 .settings
 .metadata
-
-# Images
-# ########################
-.jpg
-.png
-.gif
-/images
