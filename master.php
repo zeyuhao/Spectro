@@ -31,7 +31,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 		<?php include 'template/navigation.php'; ?><!--Navigation here -->
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-offset-2 col-md-5">
+				<div class="col-md-offset-2 col-md-4">
 					<h3>What went well</h3>
 					<?php	
 					$q = "SELECT * FROM retro_items WHERE type = 'went-well'";
@@ -66,8 +66,10 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 										</div><!-- END col-md-8-->
 										<div class="col-md-4">
 											<form action="master.php" method="post" role="form">
-												<div class="col-md-1 col-md-offset-1">
-													<button type="submit" class="btn btn-primary" name="delete">Delete</button>
+												<div class="col-md-1 col-md-offset-6">
+													<button type="submit" class="btn btn-primary" name="delete">
+														<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+													</button>
 													<input type="hidden" name="listing_id" value="<?php echo $listing_id; ?>">
 												</div>
 											</form>
@@ -80,7 +82,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 						<p>No team members think anything went well :(</p>
 					<?php } ?>
 				</div><!-- End col-md-3 -->
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<h3>What really needs improvement</h3>
 					
 					<?php	
@@ -91,7 +93,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 							$listing_date = $listing['date'];
 							$listing_theme = $listing['theme'];
 							$listing_desc = $listing['description'];
-							$listing_id = $listing['id']; ?>
+							$listing_action = $listing['action_item']; ?>
 							<div class="panel panel-primary">
 								<div class="panel-body">
 									<div class="row">
@@ -107,18 +109,41 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 													    <p><?php echo $listing_date; ?><p>
 													</div>
 												</div><!-- END row -->
+												<hr>
 												<div class="row">
+													<h4>Improvement Summary:</h4>
 													<div class="col-md-4">
 													    <p><?php echo $listing_desc; ?></p>
 													</div>
 												</div><!-- END row -->
+												<hr>
+												<? if ($listing_action != "") { ?>
+												<div class="row">
+													<h4>Action Item:</h4>
+													<div class="col-md-4">
+													    <p><?php echo $listing_action; ?></p>
+													</div>
+												</div><!-- END row -->
+												<?php }?>
 											</div>
 										</div><!-- END col-md-8-->
 										<div class="col-md-4">
-											<div class="col-md-1 col-md-offset-1">
-												<button class="btn btn-primary btn-master-action-item-add" name="add-action">
-													<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Action Item</button>
-												</button>
+											<div class="row">
+												<div class="col-md-1">
+													<button class="btn btn-primary btn-master-action-item-add" name="add-action">
+														<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Action Item</button>
+													</button>
+												</div>
+												<div class="col-md-offset-3">
+													<form action="master.php" method="post" role="form">
+														<div class="col-md-1 col-md-offset-7">
+															<button type="submit" class="btn btn-primary" name="delete">
+																<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+															</button>
+															<input type="hidden" name="listing_id" value="<?php echo $listing_id; ?>">
+														</div>
+													</form>
+												</div>
 											</div>
 										</div><!-- END col-md-4-->
 									</div><!-- END row -->

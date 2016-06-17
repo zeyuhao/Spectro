@@ -49,7 +49,7 @@ body {
 .navbar-fixed-left .navbar-nav > li {
   font-family: 'Open Sans', sans-serif;
   float: none;  /* Cancel default li float: left */
-  width: 139px;
+  width: 100%;
 }
 
 .navbar-fixed-left + .container {
@@ -62,6 +62,47 @@ body {
   margin-top: -50px;
   margin-left: 140px;
 }
+
+/*--- Rich's Styling ---*/
+
+.main-li {
+	background-color: #37AADC;
+	width: 100%;
+}
+
+.main-li-text {
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li.main-li>a {
+	color: #fff;
+}
+
+.profile-pic img{
+	width: 90px;
+	height: 90px;
+	border-radius: 100px;
+}
+
+
+.profile-description p, .profile-description h2 {
+	color: #fff;
+	line-height: 1.2;
+}
+
+.profile-description h2 {
+	font-size: 16px;
+}
+
+.profile-description p {
+	font-weight: 600;
+}
+
+.side-bar {
+	width: 100%;
+} 
+
+/*--- End ---*/
 
 .well-footer {
   font-family: 'Open Sans', sans-serif;
@@ -140,6 +181,8 @@ body {
 	width: 75px;
 	margin: 7px 10px 5px 10px;
 }
+
+
 
 /* changes background color of navbar */
 /*.navbar-default {

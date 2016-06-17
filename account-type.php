@@ -38,7 +38,7 @@ if ($_POST) {
 		<?php include 'template/default_head.php'; ?>
 	</head>	
 	<body>
-		<?php include 'template/navigation.php'; ?><!--Navigation here -->
+		<?php include 'template/navigation-full.php'; ?><!--Navigation here -->
 		<!-- Page form created here -->
 		<div class="container-fluid">
 			<div class="row">
@@ -65,6 +65,6 @@ if ($_POST) {
 				</div><!-- End col-md-6 col-md-offset-3 -->
 			</div><!-- End row -->
 		</div><!-- End container-fluid -->
-		<?php include 'template/footer.php'; ?> <!-- Footer is here -->
+		<?php include 'template/footer-full.php'; ?> <!-- Footer is here -->
 	</body>
 </html>
