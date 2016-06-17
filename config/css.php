@@ -182,6 +182,12 @@ body {
 	margin: 7px 10px 5px 10px;
 }
 
+#spectro-logo {
+	position: relative;
+	top: -8px;
+	right: 10px;
+}
+
 
 
 /* changes background color of navbar */

@@ -134,7 +134,7 @@
 	    $(".btn-master-action-item-add").click(function() {
 	    	$(".form-master-action-item").show(600);
 	    });
-	    $("#btn-master-action-item-cancel").click(function() {
+	    $(".btn-master-action-item-cancel").click(function() {
 			$(".form-master-action-item").hide(600);
 	    });
 	    

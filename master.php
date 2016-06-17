@@ -161,7 +161,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 										</div><!-- END form-group -->
 											<div class="col-sm-offset-2">
 											<button type="submit" class="btn btn-default" id="btn-master-action-item-submit" name="submit">Submit</button>
-											<button type="reset" class="btn btn-default" id="btn-master-action-item-cancel">Cancel</button>
+											<button type="reset" class="btn btn-default btn-master-action-item-cancel">Cancel</button>
 											<input type="hidden" name="listing_id" value="<?php echo $listing_id; ?>">
 										</div>
 									</form>

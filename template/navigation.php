@@ -1,6 +1,9 @@
 <nav class="col-md-offset-2 navbar navbar-default navbar-fixed-top" role="navigation"><!-- START MAIN NAVIGATION -->
 	<div class="container-fluid">
 		<ul class="nav navbar-nav pull-right">
+			<a class="navbar-brand" id="spectro-logo" href="index.php">
+	        	<img src="images/spectro_logo.png">
+	      	</a>
 			<!-- Navbar highlighting is done here -->
 			<li <?php if($pageid == '9') { echo ' class="active"'; } ?> ><a href="retro_gateway.php">Retro</a></li>
 			<li <?php if($pageid == '11') { echo ' class="active"'; } ?> ><a href="action_items.php">Action Items</a></li>

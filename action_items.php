@@ -6,7 +6,6 @@ if(!isset($_SESSION['username'])) {
 	header('Location: login.php');
 }
 include 'config/setup.php';
-$pageid = 9;
 if($_POST) {
 	if (isset($_POST['delete'])) {
 		$listing_id = $_POST['listing_id'];
@@ -20,6 +19,7 @@ if($_POST) {
 	}
 }
 include 'config/variables.php'; // reload site variables for user after sql query executes
+$pageid = 11;
 ?>
 <!DOCTYPE html>
 <html>
