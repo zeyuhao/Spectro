@@ -34,13 +34,15 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 		<?php include 'template/default_head.php'; ?>
 	</head>	
 	<body>
-		<?php include 'template/side.php'; ?><!--Navigation here -->
+		<?php include 'template/side.php'; ?><!--Side Navigation here -->
 		<?php include 'template/navigation.php'; ?><!--Navigation here -->
 		<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-offset-2 col-md-3">
+			<div class="col-md-offset-2">
 				<div class="row">
 					<div class="container">
+						<h3>Example heading <span class="label label-default">New</span></h3>
+						<br></br>
 						<div id="engineer-btns">
 							<button type="submit" class="btn btn-primary" id="btn-engineer-went-well">What Went Well</button>
 							<button type="reset" class="btn btn-primary" id="btn-engineer-needs-improvement">What Needs Improvement</button>

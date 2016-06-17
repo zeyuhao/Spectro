@@ -9,18 +9,26 @@ $pageid = 8;
 if ($_POST) {
 	if (isset($_POST['submitted_master']) == 1) {
 		$type = "master";
-		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";		
+		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
+		if (mysqli_query($dbc, $q)) {
+			$_SESSION['account_created'] = true;
+			header('Location: engineer.php?page=9');
+		}  else {
+			$q = "DELETE from users WHERE email='$user[email]'";
+			$r = mysqli_query($dbc, $q);
+			$message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+		}	
 	} else if (isset($_POST['submitted_engineer']) == 1) {
 		$type = "engineer";
 		$q = "UPDATE users SET account_type='$type' WHERE email='$user[email]'";
-	}
-	if (mysqli_query($dbc, $q)) {
-		$_SESSION['account_created'] = true;
-		header('Location: engineer.php?page=9');
-	}  else {
-		$q = "DELETE from users WHERE email='$user[email]'";
-		$r = mysqli_query($dbc, $q);
-		$message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+		if (mysqli_query($dbc, $q)) {
+			$_SESSION['account_created'] = true;
+			header('Location: master.php?page=10');
+		}  else {
+			$q = "DELETE from users WHERE email='$user[email]'";
+			$r = mysqli_query($dbc, $q);
+			$message = '<p>Your account could not be added because: '.mysqli_error($dbc).'</p>';
+		}
 	}
 }		
 ?>

@@ -2,9 +2,9 @@
 	<div class="container-fluid">
 		<ul class="nav navbar-nav pull-right">
 			<!-- Navbar highlighting is done here -->
-			<li <?php if($pageid == '1') { echo ' class="active"'; } ?> ><a href='index.php'>Home</a></li>
-			<li <?php if($pageid == '9') { echo ' class="active"'; } ?> ><a href='engineer.php'>Retro</a></li>
-			<li <?php if($pageid == '6') { echo ' class="active"'; } ?> ><a href='sell.php'>Sell</a></li>
+			<li <?php if($pageid == '9') { echo ' class="active"'; } ?> ><a href="retro_gateway.php">Retro</a></li>
+			<li <?php if($pageid == '5') { echo ' class="active"'; } ?> ><a href="account-settings.php">Account</a></li>
+			<li><a href="logout.php">Sign Out</a></li>
 		</ul><!-- END navbar-nav pull-right -->
 		<ul class="nav navbar-nav pull-left">
 			<?php if (!isset($_SESSION['username'])) { ?>
@@ -17,14 +17,10 @@
 					class="btn btn-default navbar-btn general-btn">Sign Up</button>
 			</li>
 			<?php } else { ?>
-			<button type="button" class="btn btn-default btn-sm navbar-btn dropdown-toggle" id="account-btn" data-toggle="dropdown">
-				Welcome, <?php echo $user['fullname']." "; ?><span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li><a href="account-listings.php">Your Listings</a></li>
-				<li><a href="account-settings.php">Your Account</a></li>
-				<li><a href="logout.php">Logout</a></li>
-			</ul>
+			<li class="navbar-text">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				Welcome, <?php echo $user['fullname']." "; ?>
+			</li>
 			<?php } ?>
 		</ul><!-- navbar-nav pull-left -->
 	</div><!-- END container-fluid -->

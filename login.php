@@ -1,11 +1,11 @@
 <?php
 # Start Login Session:
 session_start();
+include 'config/setup.php';
 // Redirect user to homepage if already logged in
 if(isset($_SESSION['username'])) {
-	header('Location: account-listings.php');
+	header('Location: retro_gateway.php');	
 }
-include 'config/setup.php';
 $pageid = 1;
 # Check if password and email entered in form match an entry from database
 if($_POST) {
@@ -17,7 +17,7 @@ if($_POST) {
 		# index.php will then see that this 'username' value exists	
 		$_SESSION['username'] = $_POST['email'];
 		# Need to change this location later to return to the page from where login.php was called
-		header('Location: index.php');
+		header('Location: retro_gateway.php');
 	} else $message = "Invalid email/password entered. Please try again\n\n";
 }
 ?>
