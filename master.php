@@ -49,17 +49,17 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 											<div class="container">
 												<div class="row">
 													<div class="col-md-4">
-											    		<p><?php echo $listing_theme; ?></p>
+											    		<p><h4><?php echo $listing_theme; ?></h4></p>
 											    	</div>
 												</div>
 												<div class="row">
 													<div class="col-md-4">
-													    <p><?php echo $listing_date; ?><p>
+													    <p><h4><?php echo $listing_date; ?></h4><p>
 													</div>
 												</div><!-- END row -->
 												<div class="row">
 													<div class="col-md-4">
-													    <p><?php echo $listing_desc; ?></p>
+													    <p><h4><?php echo $listing_desc; ?></h4></p>
 													</div>
 												</div><!-- END row -->
 											</div>
@@ -101,19 +101,19 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 											<div class="container">
 												<div class="row">
 													<div class="col-md-4">
-											    		<p><?php echo $listing_theme; ?></p>
+											    		<p><h4><?php echo $listing_theme; ?></h4></p>
 											    	</div>
 												</div>
 												<div class="row">
 													<div class="col-md-4">
-													    <p><?php echo $listing_date; ?><p>
+													    <p><h4><?php echo $listing_date; ?></h4><p>
 													</div>
 												</div><!-- END row -->
 												<hr>
 												<div class="row">
 													<h4>Improvement Summary:</h4>
 													<div class="col-md-4">
-													    <p><?php echo $listing_desc; ?></p>
+													    <p><h4><?php echo $listing_desc; ?></h4></p>
 													</div>
 												</div><!-- END row -->
 												<hr>
@@ -121,7 +121,7 @@ include 'config/variables.php'; // reload site variables for user after sql quer
 												<div class="row">
 													<h4>Action Item:</h4>
 													<div class="col-md-4">
-													    <p><?php echo $listing_action; ?></p>
+													    <p><h4><?php echo $listing_action; ?></h4></p>
 													</div>
 												</div><!-- END row -->
 												<?php }?>
